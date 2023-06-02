@@ -67,7 +67,7 @@ public class MyServlet extends HttpServlet {
                 }
             }
         }
-        try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://107.22.72.216:7687", "neo4j", "form-barges-sills")) {
+        try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://44.202.114.211:7687", "neo4j", "hints-skew-gyroscope")) {
             // Retrieve the comidaList from the Neo4j database
             comidaList = neo4j.getComidaList();
             tipoList = neo4j.getTipos();
@@ -111,6 +111,7 @@ public class MyServlet extends HttpServlet {
             for(String tipo:buttonName) {
             	System.out.println(tipo);
             }
+            
         }
         
         

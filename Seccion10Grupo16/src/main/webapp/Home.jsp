@@ -95,14 +95,14 @@
 		/* Style the top navigation bar */
 		.topnav {
 		  overflow: hidden;
-		  background-color: #333;
+		  background-color: #FF446D;
 		}
 		
     </style>
 </head>
 <body style="background-color:#EEF1BD; margin-bottom: 40px; padding: 20px;">
 	<div class="header">
-	  <h1 class="title-text" style="text-align: center;">FOODIE</h1>
+	  <h1 class="title-text" style="text-align: center; font-family: Blippo, fantasy; color: #FFE23C; text-shadow: 2px 2px #48ACF0;">FOODIE</h1>
       <p class="subtitle">agregar o eliminar</p>
       <img src="img3.png" alt="Person" class="title-image" >
     </div>

@@ -29,7 +29,7 @@ public class ServletAoE extends HttpServlet {
         String action = request.getParameter("action");
         String submit = request.getParameter("submit");
         
-        try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://107.22.72.216:7687", "neo4j", "form-barges-sills")) {
+        try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://44.202.114.211:7687", "neo4j", "hints-skew-gyroscope")) {
             // Retrieve the comidaList from the Neo4j database
             comidaList = neo4j.getComidaList();
         } catch (Exception e) {
@@ -44,7 +44,7 @@ public class ServletAoE extends HttpServlet {
         	if(nombre!=null&&ingredientes!=null&&tipo!=null&&nombre!=""&&ingredientes!=""&&tipo!="") {
         		ing= new ArrayList<>(Arrays.asList(ingredientes.split(",")));
             	Comida comida= new Comida(nombre, tipo, ing);
-        		try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://107.22.72.216:7687", "neo4j", "form-barges-sills")) {
+        		try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://44.202.114.211:7687", "neo4j", "hints-skew-gyroscope")) {
 	                // Retrieve the comidaList from the Neo4j database
 	        		neo4j.insert(comida);
 	            } catch (Exception e) {
@@ -52,7 +52,7 @@ public class ServletAoE extends HttpServlet {
 	            }
         	}
         	if(nombreE!=null&& nombreE!="") {
-        		try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://107.22.72.216:7687", "neo4j", "form-barges-sills")) {
+        		try (EmbeddedNeo4j neo4j = new EmbeddedNeo4j("bolt://44.202.114.211:7687", "neo4j", "hints-skew-gyroscope")) {
 	                // Retrieve the comidaList from the Neo4j database
 	        		neo4j.delete(nombreE);
 	            } catch (Exception e) {

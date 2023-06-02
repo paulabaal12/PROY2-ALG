@@ -118,11 +118,10 @@ public class EmbeddedNeo4j implements AutoCloseable {
 
         try (Session session = driver.session()) {
             for (Comida comida : comidas) {
-                String tipoComida = comida.getTipo();
-                String query ="MATCH (t:Tipo {nombre: $tipoComida})-[:TIENE_COMIDA]->(c:Comida) WHERE i.nombre IN $ingredientes RETURN c.nombre AS nombre, c.ingredientes AS ingredientes, c.tipo AS tipo ";
-                //String query = "MATCH (t:Tipo {nombre: $tipoComida})-[:TIENE_COMIDA]->(c:Comida)-[:INGREDIENTE_DE]->(i:Ingrediente) " +
-                  //      "WHERE i.nombre IN $ingredientes " +
-                 //       "RETURN c.nombre AS nombre, c.ingredientes AS ingredientes, c.tipo AS tipo";
+                String tipoComida = comida.getTipo().toLowerCase();
+                String query = "MATCH (t:Tipo {nombre: $tipoComida})-[:TIENE_COMIDA]->(c:Comida)-[:INGREDIENTE_DE]->(i:Ingrediente) " +
+                        "WHERE i.nombre IN $ingredientes " +
+                        "RETURN c.nombre AS nombre, c.ingredientes AS ingredientes, c.tipo AS tipo";
 
                 Result result = session.run(query, Values.parameters("tipoComida", tipoComida, "ingredientes", ingredientes));
 
@@ -142,12 +141,72 @@ public class EmbeddedNeo4j implements AutoCloseable {
         }
 
         return comidaporingredientes;
+    }*/
+    public List<Comida> buscarComidaPorTipo(List<String> tipoComida) {
+        List<Comida> comidasEncontradas = new ArrayList<>();
+
+        try (Session session = driver.session()) {
+        	//for(String tipos: tipoComida) {
+        		String query = "MATCH (t:Tipo)-[:TIENE_COMIDA]->(c:Comida) WHERE t.nombre IN $tipoComida RETURN c.nombre AS nombre, c.ingredientes AS ingredientes, c.tipo AS tipo";
+
+                Result result = session.run(query, Values.parameters("tipoComida", tipoComida));
+
+                while (result.hasNext()) {
+                    Record record = result.next();
+                    String nombre = record.get("nombre").asString();
+                    List<String> ingredientes = record.get("ingredientes").asList(Value::asString);
+                    String tipo = record.get("tipo").asString();
+
+                    Comida comida = new Comida(nombre, tipo, ingredientes);
+                    comidasEncontradas.add(comida);
+                }
+
+        	//}
+        	
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return comidasEncontradas;
     }
-*/
+
+    public List<Comida> contieneIngredientes(List<String> ingredientes) {
+        List<Comida> comidasIngredientes = new ArrayList<>();
+
+        try (Session session = driver.session()) {
+        	for(String tipos: ingredientes) {
+        		String query = "MATCH (i:Ingrediente)-[:INGREDIENTE_DE]->(c:Comida) WHERE i.nombre IN $ingredientes RETURN c.nombre AS nombre, c.ingredientes AS ingredientes, c.tipo AS tipo";
+
+                Result result = session.run(query, Values.parameters("ingredientes", ingredientes));
+
+                while (result.hasNext()) {
+                    Record record = result.next();
+                    String nombre = record.get("nombre").asString();
+                    List<String> ingredientesComida = record.get("ingredientes").asList(Value::asString);
+                    String tipo = record.get("tipo").asString();
+
+                    Comida comida = new Comida(nombre, tipo, ingredientesComida);
+                    comidasIngredientes.add(comida);
+                }
+        	}
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return comidasIngredientes;
+    }
     public void delete(String name) {
         try (Session session = driver.session()) {
-            String query = "MATCH (c:Comida {nombre: $nombre}) DELETE c";
-            session.run(query, Values.parameters("nombre", name));
+            // Delete the food node
+            String deleteFoodQuery = "MATCH (c:Comida {nombre: $nombre}) DETACH DELETE c";
+            session.run(deleteFoodQuery, Values.parameters("nombre", name));
+
+            // Delete the relationships between Tipo and Comida
+            String deleteRelationshipQuery = "MATCH (t:Tipo)-[r:TIENE_COMIDA]->(c:Comida {nombre: $nombre}) DELETE r";
+            session.run(deleteRelationshipQuery, Values.parameters("nombre", name));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -187,6 +246,14 @@ public class EmbeddedNeo4j implements AutoCloseable {
                     "ingredientes", comida.getIngredientes(),
                     "tipo", comida.getTipo()
             ));
+            
+         // Delete existing connections between food and type
+            String deleteQuery = "MATCH (t:Tipo)-[r:TIENE_COMIDA]->(c:Comida) WHERE c.tipo = t.nombre DELETE r";
+            session.run(deleteQuery);
+
+            // Create new connections between food and type
+            String connectQuery = "MATCH (t:Tipo), (c:Comida) WHERE c.tipo = t.nombre CREATE (t)-[:TIENE_COMIDA]->(c)";
+            session.run(connectQuery);
         } catch (Exception e) {
             e.printStackTrace();
         }
