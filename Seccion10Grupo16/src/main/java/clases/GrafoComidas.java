@@ -118,7 +118,7 @@ public class GrafoComidas {
         	comida.setPuntuacion(contarIngredientesComida(comida,Type));
         	recomendaciones.add(comida);
         }
-        if(Type.size()>=1 && buttonName.size()>=1) {
+        if(Type.size()>=1 ) {
         	// Ordenar las recomendaciones por puntuación en orden descendente
             recomendaciones.sort((c1, c2) -> Integer.compare(c2.getPuntuacion(), c1.getPuntuacion()));
         }

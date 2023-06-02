@@ -138,19 +138,33 @@
 		            <button value="Pan" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Pan</button>
 		            <button value="Salchicha" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Salchicha</button>
 		            <button value="Aguacate" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Aguacate</button>
-		            <button value="Comida rápida" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Comida rápida</button>
+		            <button value="Comida rápida" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Comida rápida</button>
 		            <button value="Papa" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Papa</button>
 		            <button value="Lechuga" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Lechuga</button>
 		            <button value="Kimchi" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Kimchi</button>
 		            <button value="Tofu" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Tofu</button>
 		            <button value="Pollo" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Pollo</button>
 		            
-		            <button value="Sándwiches" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Sándwiches</button>
+		            <button value="Sándwiches" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Sándwiches</button>
 		            <button value="Pastas" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Pastas</button>
 		            <button value="Sopas" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Sopas</button>
 		            <button value="Japonesa" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Japonesa</button>
 		            <button value="Mexicana" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Mexicana</button>
 		            <button value="Ensaladas" name="buttonName" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Ensaladas</button>
+		            
+		            
+		            <button value="vegetales" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Vegetales</button>
+		            <button value="frutas" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Frutas</button>
+		            <button value="fideos" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Fideos</button>
+		            <button value="carne" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Carne</button>
+		            <button value="agua" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Agua</button>
+		            <button value="nueces" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Nueces</button>
+		            <button value="arroz" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Arroz</button>
+		            <button value="tortilla" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Tortilla</button>
+		            <button value="tortilla de maíz" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#48ACF0;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Tortilla de Maíz</button>
+		            <button value="harina" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Harina</button>
+		            <button value="yogurt" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Yogurt</button>
+		            <button value="salsa" name="Type" class="w3-button w3-round-large" style="color: #f2f2f2; width:27%; background-color:#FFE23C;font-size:30px; margin-top:20px; margin-left:20px; margin-right:20px;">Salsa</button>
 		        </form>
         	</div>
         </div>
